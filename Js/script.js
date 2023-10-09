@@ -43,8 +43,21 @@ const filterHandler = (event) => {
    
 };
 const searchPriceHandler = (event)=> {
-    const searchPrice = event.target.parentElement.children[0].value;
-}
+    const searchPrice = +event.target.parentElement.children[0].value;
+
+    products.forEach ( (product) => {
+        const productPrice = product.children[2].innerText;
+        const price = +productPrice.split( " " )[0];
+
+        if (!searchPrice){
+            product.style.display = "block";
+        } else {
+            searchPrice === price
+                ? (product.style.display = "block")
+                :  (product.style.display = "none")
+        }
+    });
+};
 button.forEach ( (button) =>{
     button.addEventListener ("click" ,filterHandler);
 } );
