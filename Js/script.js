@@ -58,8 +58,11 @@ const searchPriceHandler = (event)=> {
         }
     });
 };
-button.forEach ( (button) =>{
+const start = () => {
+    button.forEach ( (button) =>{
     button.addEventListener ("click" ,filterHandler);
 } );
 searchInput.addEventListener("keyup", searchHandler);
 priceButton.addEventListener( "click" , searchPriceHandler)
+};
+window.addEventListener("load" , start)
