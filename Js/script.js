@@ -16,8 +16,20 @@ const searchHandler = (event)=> {
 
 const filterHandler = (event) => {
     const filter = event.target.dataset.filter;
+
+    products.forEach((product)=>{
+        const category = product.dataset.category;
+         if (filter === "All"){
+        product.style.display = "block";  
+    } else {
+        filter === category
+        ? (product.style.display = "block")
+        : (product.style.display = "none");
+    }
+    })
+   
 }
 searchInput.addEventListener("keyup", searchHandler);
-buttons.forEach ( button =>{
+button.forEach ( button =>{
     button.addEventListener ("click" ,filterHandler);
 } )
